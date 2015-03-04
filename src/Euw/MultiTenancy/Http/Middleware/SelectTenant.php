@@ -20,7 +20,7 @@ class SelectTenant {
 	{
 		$server = explode( '.', Request::server( 'HTTP_HOST' ) );
 
-		if ( $server[0] == 'apps' ) {
+		if ( $server[0] == 'apps' || $server[0] == 'www' ) {
 			array_shift( $server );
 		}
 

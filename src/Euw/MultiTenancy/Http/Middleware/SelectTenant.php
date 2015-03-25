@@ -37,7 +37,7 @@ class SelectTenant {
 				throw new TenantIsNotActiveException;
 			}
 
-			$context = App::make( 'Euw\MultiTenancy\Contexts\Context' );
+			$context = app()->make( 'Euw\MultiTenancy\Contexts\Context' );
 			$context->set( $tenant );
 		}
 

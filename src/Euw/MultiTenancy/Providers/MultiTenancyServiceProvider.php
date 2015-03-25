@@ -10,8 +10,8 @@ class MultiTenancyServiceProvider extends ServiceProvider {
 	 */
 	public function boot() {
 		$this->publishes( [
-			realpath( __DIR__ . '/../../../migrations' ) => $this->app->databasePath() . '/migrations',
-		] );
+			__DIR__ . '/../../../migrations/' => base_path( '/database/migrations' )
+		], 'migrations' );
 	}
 
 	/**

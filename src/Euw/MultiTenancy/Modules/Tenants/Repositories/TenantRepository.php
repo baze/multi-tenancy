@@ -325,6 +325,12 @@ abstract class TenantRepository extends AbstractRepository
         return $this->whereNotInThroughColumn($key, $values, $with);
     }
 
+    public function withTrashed( array $with = array() ) {
+        $entity = $this->make( $with );
+
+        return $this->scopeColumn( $entity )->withTrashed();
+    }
+
 
 
 }

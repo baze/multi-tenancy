@@ -2,6 +2,7 @@
 
 use Closure;
 use Euw\MultiTenancy\Exceptions\TenantIsNotActiveException;
+use Euw\MultiTenancy\Exceptions\TenantIsNotPublicException;
 use Euw\MultiTenancy\Exceptions\TenantNotFoundException;
 use Euw\MultiTenancy\Modules\Tenants\Models\Tenant;
 use Illuminate\Support\Facades\App;
@@ -36,6 +37,11 @@ class SelectTenant {
 			if ( ! $tenant->active ) {
 				throw new TenantIsNotActiveException;
 			}
+
+			if ( ! $tenant->public ) {
+				throw new TenantIsNotPublicException;
+			}
+
 
 			$context = app()->make( 'Euw\MultiTenancy\Contexts\Context' );
 			$context->set( $tenant );

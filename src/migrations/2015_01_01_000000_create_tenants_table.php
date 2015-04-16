@@ -20,7 +20,6 @@ class CreateTenantsTable extends Migration {
             $table->string('fb_page_id')->nullable();
             $table->boolean('confirmed')->default(false);
             $table->tinyInteger('active')->default(0);
-            $table->boolean('public')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

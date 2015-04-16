@@ -38,11 +38,6 @@ class SelectTenant {
 				throw new TenantIsNotActiveException;
 			}
 
-			if ( ! $tenant->public ) {
-				throw new TenantIsNotPublicException;
-			}
-
-
 			$context = app()->make( 'Euw\MultiTenancy\Contexts\Context' );
 			$context->set( $tenant );
 		}

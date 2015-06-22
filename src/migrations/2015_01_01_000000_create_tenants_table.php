@@ -21,6 +21,7 @@ class CreateTenantsTable extends Migration {
             $table->boolean('confirmed')->default(false);
             $table->tinyInteger('active')->default(0);
             $table->boolean('public')->default(false);
+            $table->string( 'ga_tracking_id' )->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
